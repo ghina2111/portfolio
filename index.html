@@ -4,27 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="src/output.css"/>
+    <link rel="stylesheet" href="output.css"/>
     <link rel="stylesheet" href="src/input.css"/>
 </head>
 <body>
 
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
+    <!-- <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
                     <a href="#home" class="font-bold text-lg text-primary block py-6">ghinapuspa</a>
                 </div>
                 <div class="flex items-center px-4">
-                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4" aria-label="Menu">
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden" title="Menu">
+                        <span class="hamburger-line transtiion duration-300 ease-in-out origin-top-left"></span>
+                        <span class="hamburger-line transtiion duration-300 ease-in-out"></span>
+                        <span class="hamburger-line transtiion duration-300 ease-in-out origin-bottom-left"></span>
+                    </button> -->
+                    <!-- <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full">
+                        <ul class="block">
+                            <li class="group">
+                                <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
+                            </li>
+                            <li class="group">
+                                <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Saya</a>
+                            </li>
+                            <li class="group">
+                                <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Portfolio</a>
+                            </li>
+                            <li class="group">
+                                <a href="#projects" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Projects</a>
+                            </li>
+                            <li class="group">
+                                <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Contact</a>
+                            </li>
+                        </ul>
+                    </nav> -->
+                <!-- </div>
+            </div>
+        </div>
+    </header> -->
+
+
+    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">        <div class="container mx-auto flex justify-between items-center">
+        <div class="container">
+            <div class="flex items-center justify-between relative">
+                <div class="px-4">
+                    <a href="#home" class="font-bold text-lg text-primary block py-6">ghinapuspa</a>
+                </div>
+                <div class="flex items-center px-4">
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden" title="Menu">
                         <span class="hamburger-line transtiion duration-300 ease-in-out origin-top-left"></span>
                         <span class="hamburger-line transtiion duration-300 ease-in-out"></span>
                         <span class="hamburger-line transtiion duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
-                </div>
-            </div>
+                    <nav id="nav-menu" class="hidden md:flex space-x-6 font-roboto">
+                        <a href="#home" class="transition-colors duration-300 hover:text-blue-600">Home</a>
+                        <a href="#about" class="transition-colors duration-300 hover:text-blue-600">About</a>
+                        <a href="#experience" class="transition-colors duration-300 hover:text-blue-600">Experience</a>
+                        <a href="#education" class="transition-colors duration-300 hover:text-blue-600">Education</a>
+                        <a href="#skill" class="transition-colors duration-300 hover:text-blue-600">Skill</a>
+                        <a href="#portfolio" class="transition-colors duration-300 hover:text-blue-600">Portfolio</a>
+                        <a href="#contact" class="transition-colors duration-300 hover:text-blue-600">Contact</a>
+                    </nav>
+                    
+                    
+            <!-- <div id="hamburger" class="md:hidden flex flex-col">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div> -->
         </div>
     </header>
+    
 
     <section id="home" class="pt-36">
         <div class="container">
@@ -106,45 +158,8 @@
                 </div>
             </div>
         </div>
-
     </section>
 
-    <!-- <h1>Hello! I'm Ghina.</h1>
-    <p>I'm an Informatics Undergraduate Student at Sebelas Maret University. 
-        I've been learning to code since 2022 and have a strong interest in <b>Web Development</b>, 
-        <b>Mobile App Development</b>, and <b>Artificial Intelligence</b>.</p>
-
-    <h1>Projects</h1>
-    <h2>Here are the projects that I have completed up to semester 4 </h2>
-    <p>Website Development
-        <br>Mobile App Development
-        <br>Software Engineering
-        <br>Artificial Intelligence
-        <br>Object-Oriented Programming</p>
-    
-    <h1>Skills</h1>
-    <p>HTML
-        <br>CSS
-        <br>Java
-        <br>PHP
-    </p>
-
-    <h1>Framework</h1>
-    <p>Bootstrap
-        <br>Laravel
-        <br>Tailwind CSS
-    </p>
-
-    <footer>
-        <h3>
-            Contact
-        </h3>
-        <p>Instagram : <a href="https://www.instagram.com/ghinaaaps/">@ghinaaaps</a>
-            <br>Email : <a href="mailto:ghinapuspamurti@gmail.com">ghinapuspamurti@gmail.com</a>
-            <br>Linkedln : <a href="https://www.linkedin.com/in/ghina-puspamurti-887850257/">Ghina Puspamurti</a>
-            <br>Github : <a href="https://github.com/ghina2111">ghina2111</a>
-        </p>
-    </footer> -->
     <script src="js/script.js"></script>
 </body>
 </html>
