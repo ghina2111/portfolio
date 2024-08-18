@@ -37,7 +37,13 @@ window.onscroll = function() {
 const hamburger = document.querySelector('#hamburger');
 const navMenu = document.querySelector('#nav-menu');
 
-hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle('hamburger-active');
-    navMenu.classList.toggle('hidden');
-});
+// hamburger.addEventListener('click', function() {
+//     hamburger.classList.toggle('hamburger-active');
+//     navMenu.classList.toggle('hidden');
+// });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('hamburger-active');
+    document.getElementById('nav-menu').classList.toggle('hidden');
+  });
+  
