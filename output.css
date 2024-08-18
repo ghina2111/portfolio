@@ -956,8 +956,8 @@ video {
   z-index: 9999;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.8;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -1023,7 +1023,17 @@ video {
 /* Sesuaikan lebar nav menu dengan ukuran konten */
 #nav-menu {
   /* width: auto; Otomatis mengikuti lebar konten */
-  min-width: 500px; /* Batas minimum lebar untuk tampilan rapi */
+  min-width: 300px; /* Batas minimum lebar untuk tampilan rapi */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#nav-menu a {
+  display: block; /* Pastikan item menu menempati seluruh ruang yang ada */
+  padding: 8px 16px; /* Padding yang konsisten */
+  margin: 0; /* Margin yang konsisten */
+  transition: color 0.3s; /* Efek transisi pada hover */
 }
 
 
@@ -1079,9 +1089,9 @@ video {
 /* Lebar nav-menu saat hamburger aktif di perangkat kecil */
 @media (max-width: 768px) {
   #nav-menu {
-    width: 30px; /* Atur lebar sesuai keinginan Anda */
+    width: 40px; /* Atur lebar sesuai keinginan Anda */
     left: 20%; /* Posisikan di tengah secara horizontal */
-    transform: translateX(-20%); /* Agar tetap di tengah */
+    transform: translateX(-40%); /* Agar tetap di tengah */
   }
 }
 
