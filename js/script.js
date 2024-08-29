@@ -48,3 +48,26 @@ document.getElementById('hamburger').addEventListener('click', function() {
   });
   
 
+  window.addEventListener('resize', adjustLayout);
+
+  function adjustLayout() {
+      const skillsSection = document.getElementById('skills');
+      const portfolioSection = document.getElementById('portfolio');
+      const isMobile = window.innerWidth < 1024;
+  
+      if (isMobile) {
+          skillsSection.classList.add('grid-cols-1');
+          skillsSection.classList.remove('grid-cols-3');
+          portfolioSection.classList.add('grid-cols-1');
+          portfolioSection.classList.remove('grid-cols-3');
+      } else {
+          skillsSection.classList.add('grid-cols-3');
+          skillsSection.classList.remove('grid-cols-1');
+          portfolioSection.classList.add('grid-cols-3');
+          portfolioSection.classList.remove('grid-cols-1');
+      }
+  }
+  
+  // Initial layout adjustment
+  adjustLayout();
+  
