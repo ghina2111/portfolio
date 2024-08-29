@@ -882,6 +882,10 @@ video {
   margin-top: 2.5rem;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .block {
   display: block;
 }
@@ -896,6 +900,14 @@ video {
 
 .h-9 {
   height: 2.25rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.object-cover {
+  object-fit: cover;
 }
 
 .w-9 {
