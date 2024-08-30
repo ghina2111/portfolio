@@ -56,4 +56,6 @@ Pengguna dapat memberikan masukan melalui bagian kontak untuk pengembangan lebih
 
 ![alt text](image.png)
 
+![alt text](image-2.png)
+
 ![alt text](image-1.png)
