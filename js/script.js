@@ -1,25 +1,3 @@
-// //navbar fixed
-// window.onscroll = function() {
-//     const header = document.querySelector('header');
-//     const fixedNav = header.offsetTop;
-
-//     if(window.scrollY > fixedNav) {
-//         header.classList.add('navbar-fixed');
-//     } else {
-//         header.classList.remove('navbar-fixed');
-//     }
-// };
-
-// // hamburger
-// const hamburger = document.querySelector('#hamburger');
-// const navMenu = document.querySelector('#nav-menu');
-
-// hamburger.addEventListener('click', function() {
-//     hamburger.classList.toggle('hamburger-active');
-//     navMenu.classList.toggle('hidden');
-// })
-
-
 
 //navbar fixed
 window.onscroll = function() {
@@ -36,11 +14,6 @@ window.onscroll = function() {
 // hamburger
 const hamburger = document.querySelector('#hamburger');
 const navMenu = document.querySelector('#nav-menu');
-
-// hamburger.addEventListener('click', function() {
-//     hamburger.classList.toggle('hamburger-active');
-//     navMenu.classList.toggle('hidden');
-// });
 
 document.getElementById('hamburger').addEventListener('click', function() {
     this.classList.toggle('hamburger-active');
@@ -71,3 +44,36 @@ document.getElementById('hamburger').addEventListener('click', function() {
   // Initial layout adjustment
   adjustLayout();
   
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            // At 640px or higher, display 2 slides
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            // At 768px or higher, display 3 slides
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30
+            }
+        }
+    });
+});
+
+
+// document.getElementById('submitButton').addEventListener('click', function() {
+//     document.getElementById('contactForm').submit();
+//   })

@@ -780,6 +780,102 @@ video {
     }
 }
 
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.swiper-container {
+  position: relative;
+}
+
+.px-12 {
+  padding-left: 3rem /* 48px */;
+  padding-right: 3rem /* 48px */;
+}
+
+.px-24 {
+  padding-left: 6rem /* 96px */;
+  padding-right: 6rem /* 96px */;
+}
+
+@media (min-width: 640px) {
+  .sm\:px-10 {
+      padding-left: 2.5rem /* 40px */;
+      padding-right: 2.5rem /* 40px */;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:px-24 {
+      padding-left: 6rem /* 96px */;
+      padding-right: 6rem /* 96px */;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: 27px;
+  height: 44px;
+  margin-top: -22px;
+  background-color: rgba(0,0,0,0.5);
+  background-size: 27px 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
