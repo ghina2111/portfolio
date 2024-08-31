@@ -1,10 +1,8 @@
-// Function to validate email format
 function isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
-// Function to handle form submission
 function handleFormSubmit(event: Event): void {
     event.preventDefault();
 
@@ -50,6 +48,9 @@ function handleFormSubmit(event: Event): void {
             feedbackDiv.textContent = 'Message sent successfully!';
             feedbackDiv.style.color = 'green';
             (document.getElementById('contactForm') as HTMLFormElement).reset();
+
+            // Display a pop-up message
+            alert('Your message has been sent successfully!');
         })
         .catch(error => {
             feedbackDiv.textContent = error.message;
@@ -60,6 +61,7 @@ function handleFormSubmit(event: Event): void {
 
 // Add event listener for form submission
 document.getElementById('contactForm')?.addEventListener('submit', handleFormSubmit);
+
 
 
 // Fade-in effect on scroll
@@ -90,6 +92,10 @@ document.getElementById('nextBtn')?.addEventListener('click', () => {
     slides[currentSlide].classList.add('active');
 });
 
+const feedbackDiv = document.getElementById('formFeedback') as HTMLDivElement | null;
+if (feedbackDiv) {
+  // Rest of the code
+}
 
 // // TypeScript for handling form submission and validation
 // const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;

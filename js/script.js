@@ -74,6 +74,7 @@ document.getElementById('hamburger').addEventListener('click', function() {
 });
 
 
+
 // document.getElementById('submitButton').addEventListener('click', function() {
 //     document.getElementById('contactForm').submit();
 //   })
