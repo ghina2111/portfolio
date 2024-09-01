@@ -1,8 +1,25 @@
+// Function to validate email format
 function isValidEmail(email: string): boolean {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
+// Function to show popup message
+function showPopup(message: string, color: string): void {
+    const popup = document.getElementById('popupMessage') as HTMLDivElement;
+    const popupText = document.getElementById('popupText') as HTMLParagraphElement;
+
+    popupText.textContent = message;
+    popupText.className = `text-${color}-600 font-bold`;
+    popup.classList.remove('hidden');
+
+    // Close the pop-up after 3 seconds
+    setTimeout(() => {
+        popup.classList.add('hidden');
+    }, 3000);
+}
+
+// Event handler for form submission
 function handleFormSubmit(event: Event): void {
     event.preventDefault();
 
@@ -17,13 +34,13 @@ function handleFormSubmit(event: Event): void {
 
     if (name === '' || email === '' || message === '') {
         feedbackDiv.textContent = 'All fields are required!';
-        feedbackDiv.style.color = 'red';
+        feedbackDiv.className = 'text-red-600 font-bold';
     } else if (!isValidEmail(email)) {
         feedbackDiv.textContent = 'Please enter a valid email address!';
-        feedbackDiv.style.color = 'red';
+        feedbackDiv.className = 'text-red-600 font-bold';
     } else {
         feedbackDiv.textContent = 'Sending your message...';
-        feedbackDiv.style.color = 'blue';
+        feedbackDiv.className = 'text-blue-600 font-bold';
 
         // Simulate sending data to server
         fetch('https://example.com/api/contact', {
@@ -46,15 +63,18 @@ function handleFormSubmit(event: Event): void {
         })
         .then(data => {
             feedbackDiv.textContent = 'Message sent successfully!';
-            feedbackDiv.style.color = 'green';
+            feedbackDiv.className = 'text-green-600 font-bold';
             (document.getElementById('contactForm') as HTMLFormElement).reset();
 
-            // Display a pop-up message
-            alert('Your message has been sent successfully!');
+            // Display the pop-up message
+            showPopup('Your message has been sent successfully!', 'green');
         })
         .catch(error => {
             feedbackDiv.textContent = error.message;
-            feedbackDiv.style.color = 'red';
+            feedbackDiv.className = 'text-red-600 font-bold';
+
+            // Display the pop-up message for errors
+            showPopup(error.message, 'red');
         });
     }
 }
@@ -62,7 +82,10 @@ function handleFormSubmit(event: Event): void {
 // Add event listener for form submission
 document.getElementById('contactForm')?.addEventListener('submit', handleFormSubmit);
 
-
+// Event handler to close the popup when clicking the close button
+document.getElementById('closePopup')?.addEventListener('click', () => {
+    document.getElementById('popupMessage')?.classList.add('hidden');
+});
 
 // Fade-in effect on scroll
 window.addEventListener('scroll', () => {

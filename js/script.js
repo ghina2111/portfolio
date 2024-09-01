@@ -73,8 +73,87 @@ document.getElementById('hamburger').addEventListener('click', function() {
     });
 });
 
+// function isValidEmail(email) {
+//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return emailPattern.test(email);
+// }
 
+// function showPopup(message, color) {
+//     const popup = document.getElementById('popupMessage');
+//     const popupText = document.getElementById('popupText');
+    
+//     popupText.textContent = message;
+//     popupText.className = `text-${color}-600 font-bold`;
+//     popup.classList.remove('hidden');
 
-// document.getElementById('submitButton').addEventListener('click', function() {
-//     document.getElementById('contactForm').submit();
-//   })
+//     // Close the pop-up after 3 seconds
+//     setTimeout(() => {
+//         popup.classList.add('hidden');
+//     }, 3000);
+// }
+
+// document.getElementById('closePopup').addEventListener('click', () => {
+//     document.getElementById('popupMessage').classList.add('hidden');
+// });
+
+// function handleFormSubmit(event) {
+//     event.preventDefault();
+
+//     const nameInput = document.getElementById('name');
+//     const emailInput = document.getElementById('email');
+//     const messageInput = document.getElementById('message');
+//     const feedbackDiv = document.getElementById('formFeedback');
+
+//     const name = nameInput.value.trim();
+//     const email = emailInput.value.trim();
+//     const message = messageInput.value.trim();
+
+//     if (name === '' || email === '' || message === '') {
+//         feedbackDiv.textContent = 'All fields are required!';
+//         feedbackDiv.className = 'text-red-600 font-bold';
+//     } else if (!isValidEmail(email)) {
+//         feedbackDiv.textContent = 'Please enter a valid email address!';
+//         feedbackDiv.className = 'text-red-600 font-bold';
+//     } else {
+//         feedbackDiv.textContent = 'Sending your message...';
+//         feedbackDiv.className = 'text-blue-600 font-bold';
+
+//         // Simulate sending data to server
+//         fetch('https://example.com/api/contact', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({
+//                 name: name,
+//                 email: email,
+//                 message: message,
+//             }),
+//         })
+//         .then(response => {
+//             if (response.ok) {
+//                 return response.json();
+//             } else {
+//                 throw new Error('Failed to send message');
+//             }
+//         })
+//         .then(data => {
+//             feedbackDiv.textContent = 'Message sent successfully!';
+//             feedbackDiv.className = 'text-green-600 font-bold';
+//             document.getElementById('contactForm').reset();
+
+//             // Display the pop-up message
+//             showPopup('Your message has been sent successfully!', 'green');
+//         })
+//         .catch(error => {
+//             feedbackDiv.textContent = error.message;
+//             feedbackDiv.className = 'text-red-600 font-bold';
+
+//             // Display the pop-up message for errors
+//             showPopup(error.message, 'red');
+//         });
+//     }
+// }
+
+// Add event listener for form submission
+// document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
