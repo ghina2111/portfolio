@@ -20,9 +20,22 @@
 //   plugins: [],
 // }
 
+module.exports = {
+  content: [
+    './src/**/*.html',
+    './src/**/*.js',
+    './src/**/*.ts',  // Sertakan file TypeScript
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['index.html'],
+  content: ['index.html', 'typescript.js'],
   theme: {
     container: {
       center: true,
