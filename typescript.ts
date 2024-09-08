@@ -1,3 +1,48 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { getAnalytics } from "firebase/analytics";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDGUBgwScN84_JnyCbMGiJiRVgg_tJdV2Y",
+  authDomain: "portfolio-85e65.firebaseapp.com",
+  projectId: "portfolio-85e65",
+  storageBucket: "portfolio-85e65.appspot.com",
+  messagingSenderId: "745526605121",
+  appId: "1:745526605121:web:7992cdf70e0ee961255dc0",
+  measurementId: "G-EBDZ515LRH"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const messaging = getMessaging(app);
+
+// Function to request permission and get FCM token
+function requestFCMPermission() {
+    return Notification.requestPermission()
+        .then((permission) => {
+            if (permission === 'granted') {
+                return getToken(messaging, { vapidKey: 'YOUR_VAPID_KEY' });
+            } else {
+                throw new Error('Notification permission denied');
+            }
+        })
+        .then((currentToken) => {
+            if (currentToken) {
+                console.log('FCM Token:', currentToken);
+                return currentToken;
+            } else {
+                throw new Error('No FCM registration token available');
+            }
+        })
+        .catch((err) => {
+            console.error('An error occurred while retrieving token: ', err);
+            return null;
+        });
+}
+
 // Interface for form data
 interface ContactFormData {
     name: string;
@@ -11,13 +56,13 @@ function isValidEmail(email: string): boolean {
     return emailPattern.test(email);
 }
 
-// Menampilkan pesan popup dengan Tailwind CSS
+// Function to show a popup message
 function showPopup(message: string, color: string) {
     const popup = document.getElementById('popupMessage');
     const popupText = document.getElementById('popupText');
     if (popupText) {
         popupText.textContent = message;
-        popupText.className = `text-${color}-600 font-bold`; // Template literal untuk kelas Tailwind
+        popupText.className = `text-${color}-600 font-bold`;
     }
     if (popup) {
         popup.classList.remove('hidden');
@@ -50,36 +95,33 @@ function handleFormSubmit(event: Event): void {
         feedbackDiv.textContent = 'Sending your message...';
         feedbackDiv.className = 'text-blue-600 font-bold';
 
-        // Simulate sending data to the server
-        fetch('https://example.com/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, message }),
-        })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
+        // Get FCM token and send message
+        requestFCMPermission()
+            .then((token) => {
+                if (token) {
+                    sendMessageToDeveloper({ name, email, message, token });
                 } else {
-                    throw new Error('Failed to send message');
+                    showPopup('Failed to send message. No token available.', 'red');
                 }
             })
-            .then(() => {
-                feedbackDiv.textContent = 'Message sent successfully!';
-                feedbackDiv.className = 'text-green-600 font-bold';
-                (document.getElementById('contactForm') as HTMLFormElement)?.reset();
-                // Display the pop-up message
-                showPopup('Your message has been sent successfully!', 'green');
-            })
-            .catch((error: Error) => {
-                feedbackDiv.textContent = error.message;
-                feedbackDiv.className = 'text-red-600 font-bold';
-                // Display the pop-up message for errors
-                showPopup(error.message, 'red');
+            .catch((err) => {
+                showPopup('Failed to send message. Error: ' + err.message, 'red');
             });
     }
 }
+
+// Function to send message using Firebase Cloud Messaging
+function sendMessageToDeveloper(formData: ContactFormData & { token: string }) {
+    console.log('Sending message to developer with FCM token:', formData);
+    // Simulate sending data to a server or use Firebase Cloud Functions here
+    showPopup('Message sent successfully!', 'green');
+}
+
+// Receive messages from Firebase Cloud Messaging
+onMessage(messaging, (payload) => {
+    console.log('Message received: ', payload);
+    showPopup(`Message from developer: ${payload.notification?.body}`, 'blue');
+});
 
 // Add event listener for form submission
 document.getElementById('contactForm')?.addEventListener('submit', handleFormSubmit);
@@ -88,7 +130,6 @@ document.getElementById('contactForm')?.addEventListener('submit', handleFormSub
 document.getElementById('closePopup')?.addEventListener('click', () => {
     document.getElementById('popupMessage')?.classList.add('hidden');
 });
-
 
 // Fade-in effect on scroll
 window.addEventListener('scroll', () => {
@@ -117,61 +158,3 @@ document.getElementById('nextBtn')?.addEventListener('click', () => {
     currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
     slides[currentSlide].classList.add('active');
 });
-
-const feedbackDiv = document.getElementById('formFeedback') as HTMLDivElement | null;
-if (feedbackDiv) {
-  // Rest of the code
-}
-
-// // TypeScript for handling form submission and validation
-// const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;
-// const formFeedback = document.getElementById('formFeedback') as HTMLDivElement | null;
-
-// function validateEmail(email: string): boolean {
-//     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     return re.test(email);
-// }
-
-// function validateForm(name: string, email: string, message: string): boolean {
-//     if (name.trim() === '') {
-//         formFeedback!.textContent = 'Name is required!';
-//         formFeedback!.style.color = 'red';
-//         return false;
-//     }
-
-//     if (email.trim() === '' || !validateEmail(email)) {
-//         formFeedback!.textContent = 'Please enter a valid email!';
-//         formFeedback!.style.color = 'red';
-//         return false;
-//     }
-
-//     if (message.trim() === '') {
-//         formFeedback!.textContent = 'Message is required!';
-//         formFeedback!.style.color = 'red';
-//         return false;
-//     }
-
-//     return true;
-// }
-
-// contactForm?.addEventListener('submit', (event) => {
-//     event.preventDefault();
-
-//     const name = (document.getElementById('name') as HTMLInputElement).value;
-//     const email = (document.getElementById('email') as HTMLInputElement).value;
-//     const message = (document.getElementById('message') as HTMLTextAreaElement).value;
-
-//     if (validateForm(name, email, message)) {
-//         // Form is valid, proceed with sending data
-//         formFeedback!.textContent = 'Sending your message...';
-//         formFeedback!.style.color = 'blue';
-
-//         // Here you can use Fetch API, XMLHttpRequest, or any method to send form data
-//         // For now, we'll just simulate a successful submission
-//         setTimeout(() => {
-//             formFeedback!.textContent = 'Message sent successfully!';
-//             formFeedback!.style.color = 'green';
-//             contactForm.reset();
-//         }, 2000);
-//     }
-// });
