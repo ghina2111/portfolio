@@ -157,3 +157,37 @@ document.getElementById('hamburger').addEventListener('click', function() {
 
 // Add event listener for form submission
 // document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
+// Frontend JavaScript code
+const form = document.querySelector('form');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = {
+    name: document.querySelector('input[name="name"]').value,
+    email: document.querySelector('input[name="email"]').value,
+    message: document.querySelector('textarea[name="message"]').value
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+    
+    if (response.ok) {
+      alert('Message sent successfully!');
+      form.reset();
+    } else {
+      throw new Error(data.message);
+    }
+  } catch (error) {
+    alert('Error sending message. Please try again.');
+    console.error('Error:', error);
+  }
+});

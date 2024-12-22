@@ -286,64 +286,64 @@
 
 
 // Mengambil elemen form dan elemen lainnya dari DOM
-const contactForm = document.getElementById('contactForm') as HTMLFormElement;
-const nameInput = document.getElementById('name') as HTMLInputElement;
-const emailInput = document.getElementById('email') as HTMLInputElement;
-const messageInput = document.getElementById('message') as HTMLTextAreaElement;
-const formFeedback = document.getElementById('formFeedback') as HTMLDivElement;
-const successPopup = document.getElementById('successPopup') as HTMLDivElement;
+// const contactForm = document.getElementById('contactForm') as HTMLFormElement;
+// const nameInput = document.getElementById('name') as HTMLInputElement;
+// const emailInput = document.getElementById('email') as HTMLInputElement;
+// const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+// const formFeedback = document.getElementById('formFeedback') as HTMLDivElement;
+// const successPopup = document.getElementById('successPopup') as HTMLDivElement;
 
-// Fungsi untuk memvalidasi email menggunakan regex
-const isValidEmail = (email: string): boolean => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailPattern.test(email);
-};
+// // Fungsi untuk memvalidasi email menggunakan regex
+// const isValidEmail = (email: string): boolean => {
+//   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   return emailPattern.test(email);
+// };
 
-// Fungsi untuk menampilkan pesan error atau sukses di bawah form
-const displayFeedback = (message: string, isSuccess: boolean) => {
-  formFeedback.innerText = message;
-  formFeedback.style.color = isSuccess ? 'green' : 'red';
-};
+// // Fungsi untuk menampilkan pesan error atau sukses di bawah form
+// const displayFeedback = (message: string, isSuccess: boolean) => {
+//   formFeedback.innerText = message;
+//   formFeedback.style.color = isSuccess ? 'green' : 'red';
+// };
 
-// Fungsi untuk menampilkan pop-up pesan sukses
-const showSuccessPopup = () => {
-  successPopup.classList.remove('hidden'); // Tampilkan pop-up
-  successPopup.classList.add('translate-y-0'); // Munculkan pop-up dengan animasi
-  setTimeout(() => {
-    successPopup.classList.add('-translate-y-full'); // Sembunyikan pop-up setelah 3 detik
-    successPopup.classList.remove('translate-y-0');
-  }, 3000);
-};
+// // Fungsi untuk menampilkan pop-up pesan sukses
+// const showSuccessPopup = () => {
+//   successPopup.classList.remove('hidden'); // Tampilkan pop-up
+//   successPopup.classList.add('translate-y-0'); // Munculkan pop-up dengan animasi
+//   setTimeout(() => {
+//     successPopup.classList.add('-translate-y-full'); // Sembunyikan pop-up setelah 3 detik
+//     successPopup.classList.remove('translate-y-0');
+//   }, 3000);
+// };
 
-// Event handling ketika form di-submit
-contactForm.addEventListener('submit', (event: Event) => {
-  event.preventDefault(); // Mencegah form untuk submit secara default
+// // Event handling ketika form di-submit
+// contactForm.addEventListener('submit', (event: Event) => {
+//   event.preventDefault(); // Mencegah form untuk submit secara default
 
-  // Ambil nilai input dari form
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const message = messageInput.value.trim();
+//   // Ambil nilai input dari form
+//   const name = nameInput.value.trim();
+//   const email = emailInput.value.trim();
+//   const message = messageInput.value.trim();
 
-  // Validasi input
-  if (name === '') {
-    displayFeedback('Name is required!', false);
-    return;
-  }
+//   // Validasi input
+//   if (name === '') {
+//     displayFeedback('Name is required!', false);
+//     return;
+//   }
 
-  if (email === '' || !isValidEmail(email)) {
-    displayFeedback('Please enter a valid email address!', false);
-    return;
-  }
+//   if (email === '' || !isValidEmail(email)) {
+//     displayFeedback('Please enter a valid email address!', false);
+//     return;
+//   }
 
-  if (message === '') {
-    displayFeedback('Message cannot be empty!', false);
-    return;
-  }
+//   if (message === '') {
+//     displayFeedback('Message cannot be empty!', false);
+//     return;
+//   }
 
-  // Jika validasi berhasil, tampilkan pesan sukses dan pop-up
-  displayFeedback('Message sent successfully!', true);
-  showSuccessPopup();
+//   // Jika validasi berhasil, tampilkan pesan sukses dan pop-up
+//   displayFeedback('Message sent successfully!', true);
+//   showSuccessPopup();
 
-  // Reset form setelah submit berhasil
-  contactForm.reset();
-});
+//   // Reset form setelah submit berhasil
+//   contactForm.reset();
+// });
