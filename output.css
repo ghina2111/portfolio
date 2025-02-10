@@ -596,6 +596,9 @@ video {
   position: fixed;
 }
 
+.sticky {
+  position: sticky;
+}
 .absolute {
   position: absolute;
 }
@@ -2262,8 +2265,28 @@ video {
   display: block;
 }
 
-.swiper-container {
+/* .swiper-container {
   position: relative;
+} */
+
+.swiper-container {
+  width: 100%; /* Atur lebar container sesuai kebutuhan */
+  height: 400px; /* Atur tinggi container sesuai kebutuhan */
+  overflow: hidden; /* Pastikan gambar tidak melebihi container */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Lebar slide sama dengan container */
+  height: 100%; /* Tinggi slide sama dengan container */
+}
+
+.swiper-slide img {
+  width: 100%; /* Gambar mengisi lebar slide */
+  height: 100%; /* Gambar mengisi tinggi slide */
+  object-fit: cover; /* Pastikan gambar menutupi area tanpa distorsi */
 }
 
 .px-12 {

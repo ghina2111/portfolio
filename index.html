@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">        
+    <header class="bg-transparent sticky top-0 left-0 w-full flex items-center z-10">        
         <div class="container mx-auto flex justify-between items-center">
             <div class="container">
                 <div class="flex items-center justify-between relative">
@@ -73,7 +73,7 @@
                 <div class="w-full px-4 mb-10 lg:w-1">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">About Me</h4>
                     <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">Hello!</h2>
-                    <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl">I am an Informatics undergraduate student 
+                    <p class="font-medium text-secondary max-w-full text-sm md:text-base lg:text-lg xl:text-xl">I am an Informatics undergraduate student 
                         who has been studying for 2.5 years. During my studies, I have developed skills in programming and technology 
                         through various projects, ranging from web to mobile applications. This experience has strengthened my understanding 
                         in implementing effective technology solutions and collaborating in teams. I am always eager to continue learning and 
@@ -83,31 +83,26 @@
         </div>
     </section>
 
-    <section id="experience" class="pt-36 pb-32">
-      <div class="container">
-          <div class="flex flex-wrap">
-              <!-- Left Column: Text Content -->
-              <div class="w-full lg:w-1/2 px-4 mb-10">
-                  <h4 class="font-bold uppercase text-primary text-lg mb-6">Experience</h4>
-                  <h2 class="font-bold text-dark text-3xl mb-8 max-w-md lg:text-4xl">Bootcamp</h2>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">June 2023 - September 2023</p>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">Anywhere</p>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-10">Full-Stack Developer</p>
-                  
-                  <h2 class="font-bold text-dark text-3xl mb-8 max-w-md lg:text-4xl">Volunteer</h2>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">August 2023</p>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">Karang Sidemen Village, Central Lombok, West Nusa Tenggara</p>
-                  <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl">Literasi Lumbung Lombok: Social Environment Division</p>
-              </div>
-              <!-- Right Column: Image -->
-              <div class="w-full lg:w-1/2 px-4 mb-10 flex items-center justify-center">
-                  <div class="bg-white shadow-lg rounded-lg overflow-hidden mt-16"> <!-- Added mt-16 to move the image down -->
-                      <img src="piagam kemanusiaan.jpg" alt="Experience Image" class="w-full h-auto object-cover">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+  <section id="experience" class="pt-36 pb-32">
+    <div class="container">
+        <div class="flex flex-wrap lg:items-stretch"> <!-- Tambahkan lg:items-stretch -->
+            <!-- Left Column: Text Content -->
+            <div class="w-full lg:w-1/2 px-4 mb-10 flex flex-col justify-center"> <!-- Tambahkan flex dan justify-center -->
+                <h4 class="font-bold uppercase text-primary text-lg mb-6">Experience</h4>
+                <h2 class="font-bold text-dark text-3xl mb-8 max-w-md lg:text-4xl">Volunteer</h2>
+                <p class="font-medium text-secondary max-w-full text-sm md:text-base lg:text-lg xl:text-xl mb-4">August 2023</p>
+                <p class="font-medium text-secondary max-w-full text-sm md:text-base lg:text-lg xl:text-xl mb-4">Karang Sidemen Village, Central Lombok, West Nusa Tenggara</p>
+                <p class="font-medium text-secondary max-w-full text-sm md:text-base lg:text-lg xl:text-xl">Literasi Lumbung Lombok: Social Environment Division</p>
+            </div>
+            <!-- Right Column: Image -->
+            <div class="w-full lg:w-1/2 px-4 mb-10 flex items-center justify-center">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden flex-1"> <!-- Tambahkan flex-1 -->
+                    <img src="piagam kemanusiaan.jpg" alt="Experience Image" class="w-full h-full object-cover"> <!-- Ganti h-auto dengan h-full -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
       <section id="education" class="pt-36 pb-32">
         <div class="container">
@@ -115,14 +110,14 @@
             <div class="w-full px-4 mb-10 lg:w-2/3">
               <h4 class="font-bold uppercase text-primary text-lg mb-6">Education</h4>
               <h2 class="font-bold text-dark text-3xl mb-8 max-w-md lg:text-4xl whitespace-nowrap">Sebelas Maret University</h2>
-              <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">2022 - now</p>
-              <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl">Major: S1 - Informatics</p>
+              <p class="font-medium text-base text-secondary max-w-full md:text-base lg:text-lg xl:text-xl mb-4">2022 - now</p>
+              <p class="font-medium text-base text-secondary max-w-full md:text-base lg:text-lg xl:text-xl">Major: S1 - Informatics</p>
               
               <div class="mb-8"></div> <!-- tambahkan elemen div dengan class mb-8 -->
               
               <h2 class="font-bold text-dark text-3xl mb-8 max-w-md lg:text-4xl whitespace-nowrap">Senior High School 5 Bogor</h2>
-              <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-4">2019 - 2022</p>
-              <p class="font-medium text-base text-secondary max-w-full lg:text-lg text-sm md:text-base lg:text-lg xl:text-xl mb-10">Major: Natural Science</p>
+              <p class="font-medium text-base text-secondary max-w-full md:text-base lg:text-lg xl:text-xl mb-4">2019 - 2022</p>
+              <p class="font-medium text-base text-secondary max-w-full md:text-base lg:text-lg xl:text-xl mb-10">Major: Natural Science</p>
             </div>
           </div>
         </div>
@@ -182,25 +177,29 @@
                 <p class="font-medium text-base text-secondary lg:text-lg">Explore some of my work below:</p>
             </div>
     
-            <!-- Carousel Section -->
             <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="tsukimi.png" alt="Project 1" class="w-full object-cover">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="ai.png" alt="Project 2" class="w-full object-cover">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="peweb.jpg" alt="Project 3" class="w-full object-cover">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide flex items-center justify-center">
+                      <a href="https://www.greenfoot.org/scenarios/32111" target="_blank">
+                          <img src="tsukimi.png" alt="Project 1" 
+                               class="w-full h-auto max-w-[400px] sm:max-w-[300px] aspect-video object-cover rounded-lg shadow-md">
+                      </a>
                   </div>
-                    <!-- Tambahkan slide tambahan di sini -->
-                </div>
-                <!-- Tambahkan navigasi jika diinginkan -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
+                  <div class="swiper-slide flex items-center justify-center">
+                      <a href="https://iris-data-analysis-by-ghina2111.streamlit.app/" target="_blank">
+                          <img src="analysis iris.png" alt="Project 2" 
+                               class="w-full h-auto max-w-[400px] sm:max-w-[300px] aspect-video object-cover rounded-lg shadow-md">
+                      </a>
+                  </div>
+                  <div class="swiper-slide flex items-center justify-center">
+                      <a href="https://proyek-data-analysis-python-ghinapuspamurti.streamlit.app/" target="_blank">
+                          <img src="analysis china air quality.png" alt="Project 3" 
+                               class="w-full h-auto max-w-[400px] sm:max-w-[300px] aspect-video object-cover rounded-lg shadow-md">
+                      </a>
+                  </div>
+              </div>
+          </div>
+          
         </div>
     </section>
   
